@@ -1,0 +1,18 @@
+/* Custom styles to complement Tailwind */
+body {
+  background-image: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+}
+
+#cssOutput {
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+}
+
+.modifier-checkbox:checked {
+  @apply bg-blue-500 border-blue-500;
+}
+
+/* Animation for buttons */
+button {
+  transition: all 0.2s ease-in-out;
+}
