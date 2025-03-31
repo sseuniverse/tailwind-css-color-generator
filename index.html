@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen p-8">
+  <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Tailwind CSS Generator</h1>
+    
+    <!-- Color Input Section -->
+    <div class="mb-8">
+      <label class="block text-sm font-medium text-gray-700 mb-2">Paste your color JSON:</label>
+      <textarea id="colorInput" class="w-full h-40 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" placeholder='{
+  "primary": {
+    "50": "#eff6ff",
+    "100": "#dbeafe",
+    "200": "#bfdbfe",
+    "300": "#93c5fd",
+    "400": "#60a5fa",
+    "500": "#3b82f6",
+    "600": "#2563eb",
+    "700": "#1d4ed8",
+    "800": "#1e40af",
+    "900": "#1e3a8a",
+    "950": "#172554"
+  }
+}'></textarea>
+      <p id="jsonError" class="text-red-500 text-sm mt-1 hidden">Invalid JSON format!</p>
+    </div>
+
+    <!-- Modifier Selection -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Select Modifiers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- State Modifiers -->
+        <fieldset class="border border-gray-200 p-3 rounded">
+          <legend class="text-sm font-medium text-gray-700 px-2">State</legend>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="hover"> hover</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="focus"> focus</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="active"> active</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="disabled"> disabled</label>
+          </div>
+        </fieldset>
+
+        <!-- Dark Mode -->
+        <fieldset class="border border-gray-200 p-3 rounded">
+          <legend class="text-sm font-medium text-gray-700 px-2">Dark Mode</legend>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="dark"> dark</label>
+          </div>
+        </fieldset>
+
+        <!-- Responsive -->
+        <fieldset class="border border-gray-200 p-3 rounded">
+          <legend class="text-sm font-medium text-gray-700 px-2">Responsive</legend>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="sm"> sm</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="md"> md</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="lg"> lg</label>
+          </div>
+        </fieldset>
+
+        <!-- Pseudo-Elements -->
+        <fieldset class="border border-gray-200 p-3 rounded">
+          <legend class="text-sm font-medium text-gray-700 px-2">Pseudo</legend>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="before"> before</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="after"> after</label>
+            <label class="flex items-center"><input type="checkbox" class="modifier-checkbox" value="first"> first</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex space-x-4 mb-8">
+      <button id="generateBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Generate CSS
+      </button>
+      <button id="downloadBtn" disabled class="px-4 py-2 bg-gray-300 text-gray-600 rounded-md cursor-not-allowed">
+        Download CSS
+      </button>
+    </div>
+
+    <!-- CSS Preview -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-2">Generated CSS:</label>
+      <textarea id="cssOutput" readonly class="w-full h-40 p-3 bg-gray-100 border border-gray-300 rounded-md font-mono text-sm"></textarea>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
